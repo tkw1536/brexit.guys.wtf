@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Brexit Guys WTF</title>
+    <title>Brexit Changed Again. Guys, WTF?</title>
     <style>
         * {
             font-family: sans-serif;
@@ -23,15 +23,16 @@
 
 <body>
     <div class="centered">
-        <h1 id="countdown">(collapsing Wave Function)</h1>
-        <h2>Brexit will occur earliest on <i>April 12th 2019</i> at <i>11 PM</i> UK time</h2>
-        <h3>It might be later if the House of Commons approves the <i>Withdrawal Agreement</i></h3>
+        <h1 id="countdown">(checking because it changed again)</h1>
+        <h2>Brexit will occur latest on <i>October 31st 2019</i> at <i>11 PM</i> UK time</h2>
+        <h3>It might be earlier if the House of Commons approves a <i>Withdrawal Agreement</i></h3>
     </div>
     <script type="text/javascript">
         // adapted from https://www.w3schools.com/howto/howto_js_countdown.asp
 
-        var countDownDate = new Date(1555106400 * 1000).getTime();
-        setInterval(function () {
+        var countDownDate = new Date(1572562800 * 1000).getTime();
+
+        function updateCounter() {
             // Get todays date and time
             var now = new Date().getTime();
 
@@ -49,10 +50,12 @@
 
             // If the count down is finished, write some text
             if (distance < 0) {
-                clearInterval(x);
                 document.getElementById("countdown").innerHTML = "EXPIRED";
             }
-        }, 1000);
+        }
+
+        updateCounter();
+        setInterval(updateCounter, 1000);
     </script>
 </body>
 
