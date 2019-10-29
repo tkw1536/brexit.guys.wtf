@@ -8,23 +8,37 @@
             font-family: sans-serif;
         }
 
+        h1 {
+            font-size: 8vw;
+        }
+
+        h2 {
+            font-size: 8vw;
+        }
+
+        i {
+            color: red;
+        }
+
 
         /* taken from https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ -- thanks */
         .centered {
             text-align: center;
             position: fixed;
-            top: 50%;
+            top: 40%;
             left: 50%;
+            width: 80vw;
             /* bring your own prefixes */
             transform: translate(-50%, -50%);
         }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
     <div class="centered">
         <h1 id="countdown">(checking because it changed again)</h1>
-        <h2>Probably Brexit will occur on <i>January 31st 2020</i> at <i>11 PM</i> UK time</h2>
+        <h3>Probably Brexit will occur on <i>January 31st 2020</i> at <i>11 PM</i> UK time.</h2>
     </div>
     <script type="text/javascript">
         // adapted from https://www.w3schools.com/howto/howto_js_countdown.asp
