@@ -16,8 +16,12 @@
             font-size: 8vw;
         }
 
-        i {
+        .red > i {
             color: red;
+        }
+
+        .blue > i {
+            color: blue;
         }
 
 
@@ -37,38 +41,58 @@
 
 <body>
     <div class="centered">
-        <h1 id="countdown">(checking because it changed again)</h1>
-        <h3>Brexit will occur on <i>January 31st 2020</i> at <i>11 PM</i> UK time.</h2>
+        <h1 id="countdownTransition">(loading)</h1>
+        <h3 class="red">The Transition period <span id="transitionVerb">will end</span> on <i>December 31st 2020</i> at <i>11 PM</i> UK time.</h3>
+
+        <h1 id="countdownBrexit">(checking because it changed again)</h1>
+        <h3 class="blue">Brexit <span id="brexitVerb">will occur</span> on <i>January 31st 2020</i> at <i>11 PM</i> UK time.</h3>
     </div>
     <script type="text/javascript">
         // adapted from https://www.w3schools.com/howto/howto_js_countdown.asp
 
-        var countDownDate = new Date(/*1572562800*/1580511600 * 1000).getTime();
+        /**
+            Makes a countdown in an element
+            @param {HTMLElement} element
+            @param {until} number
+            @param {function} afterCallback
+        */
+        function makeCountDown(element, until, afterCallback) {
+            var countDownDate = new Date(until).getTime();
 
-        function updateCounter() {
-            // Get todays date and time
-            var now = new Date().getTime();
+            function updateCounter() {
+                // Get todays date and time
+                var now = new Date().getTime();
 
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+                // Find the distance between now and the count down date
+                var distance = Math.abs(countDownDate - now);
 
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // If the count down is finished, write some text
+                if (countDownDate - now < 0) {
+                    afterCallback(element);
+                }
 
-            // Display the result in the element with id="demo"
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "The UK has left the EU. ";
+                // Display the result in the element with id="demo"
+                element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                
             }
+
+            updateCounter();
+            setInterval(updateCounter, 1000);
         }
 
-        updateCounter();
-        setInterval(updateCounter, 1000);
+        makeCountDown(document.getElementById("countdownBrexit"), 1580511600 * 1000, function(){
+            document.getElementById('brexitVerb').innerText = 'occured';
+        });
+        makeCountDown(document.getElementById("countdownTransition"), 1609455600 * 1000, function(){
+            document.getElementById('transitionVerb').innerText = 'ended';
+        });
     </script>
 </body>
 
