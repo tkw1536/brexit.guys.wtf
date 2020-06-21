@@ -2,15 +2,9 @@
 <html>
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159220391-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <!-- Tracking -->
+    <script async src="https://track.everyone.wtf/tracker.js" data-ackee-server="https://track.everyone.wtf" data-ackee-domain-id="837a0cf7-001f-4b98-afdd-d5b9989387e2"></script>
 
-      gtag('config', 'UA-159220391-3');
-    </script>
     <title>Brexit. Guys, WTF?</title>
     <style>
         * {
@@ -43,6 +37,18 @@
             width: 80vw;
             /* bring your own prefixes */
             transform: translate(-50%, -50%);
+        }
+
+        .legal {
+            position: absolute;
+            margin-bottom: 5px;
+            margin-right: 5px;
+            bottom: 0;
+            right: 0;
+        }
+
+        .legal > a {
+            color: blue;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -109,6 +115,9 @@
             document.getElementById('transitionVerb').innerText = 'ended';
         });
     </script>
+    <small class='legal'>
+        For legal reasons I must also link <a href="https://inform.everyone.wtf/" target="_blank">my Privacy Policy and Imprint</a>.
+    </small>
 </body>
 
 </html>
