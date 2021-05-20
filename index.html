@@ -18,14 +18,6 @@
             font-size: 8vw;
         }
 
-        .red > i {
-            color: red;
-        }
-
-        .blue > i {
-            color: blue;
-        }
-
 
         /* taken from https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ -- thanks */
         .centered {
@@ -36,6 +28,20 @@
             width: 80vw;
             /* bring your own prefixes */
             transform: translate(-50%, -50%);
+        }
+
+        body {
+            background: url(flag.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1, h3 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            background-color: rgba(0,0,0, 0.4);
+            border-radius: 25px;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
